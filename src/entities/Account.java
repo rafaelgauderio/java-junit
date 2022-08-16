@@ -7,10 +7,10 @@ public class Account {
 	public static double INTEREST = 0.01;
 
 	private Long id;
-	private Double balance;
+	private Double balance=0.0;
 
 	public Account() {
-
+		
 	}
 
 	public Account(Long id, Double balance) {
@@ -38,10 +38,10 @@ public class Account {
 	 */
 
 	public void deposit(double amount) {
-		if (amount > 0) {
+		if (amount > 0.0 ) {
 			amount = amount - amount * DEPOSITE_FEE_PERCENTAGE;
-			balance += amount;
-		}
+			this.balance += amount;
+		} 
 
 	}
 
@@ -65,5 +65,12 @@ public class Account {
 	public void interestEarned() {
 		this.balance  += this.balance * INTEREST;
 	}
+
+	@Override
+	public String toString() {
+		return "Account [id=" + id + ", balance=" + balance + "]";
+	}
+	
+	
 
 }
