@@ -37,5 +37,23 @@ public class AccountTests {
 		
 	}
 	
+	@Test
+	public void fullWithDrawShouldClearBalanceAndReturnFullBalance() {
+		double expectedValue = 0.0;
+		double balance = 500.0;
+		Account conta = AccountFactory.createAccount(balance);		
+		
+		//função zerar todo o saldo
+		double result = conta.fullWithdraw();
+		
+		
+		Assertions.assertEquals(expectedValue,conta.getBalance());
+		Assertions.assertTrue(expectedValue == conta.getBalance());
+		Assertions.assertEquals(result, balance);
+		Assertions.assertTrue(result == balance);
+		
+		
+	}
+	
 
 }
