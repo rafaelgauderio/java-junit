@@ -44,14 +44,22 @@ public class AccountTests {
 		Account conta = AccountFactory.createAccount(balance);		
 		
 		//função zerar todo o saldo
-		double result = conta.fullWithdraw();
-		
+		double result = conta.fullWithdraw();		
 		
 		Assertions.assertEquals(expectedValue,conta.getBalance());
 		Assertions.assertTrue(expectedValue == conta.getBalance());
 		Assertions.assertEquals(result, balance);
-		Assertions.assertTrue(result == balance);
+		Assertions.assertTrue(result == balance);		
+	}
+	
+	@Test
+	public void interestEarnedWhenReceiveInterest () {
 		
+		double expectedValue = 1500 + 1500 * 0.01;
+		double initialBalance = 1500;
+		Account conta = AccountFactory.createAccount(initialBalance);	
+		conta.interestEarned();
+		Assertions.assertEquals(expectedValue, conta.getBalance());
 		
 	}
 	

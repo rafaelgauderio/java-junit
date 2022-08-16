@@ -4,6 +4,7 @@ public class Account {
 
 	// taxa bancária por deposito
 	public static double DEPOSITE_FEE_PERCENTAGE = 0.015;
+	public static double INTEREST = 0.01;
 
 	private Long id;
 	private Double balance;
@@ -58,6 +59,11 @@ public class Account {
 		double auxilliary = balance;
 		balance = 0.0;
 		return auxilliary;
+	}
+	
+	//método para ganhar juros de investimento
+	public void interestEarned() {
+		this.balance  += this.balance * INTEREST;
 	}
 
 }
